@@ -1,82 +1,290 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-    <meta charset='utf-8'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Your first deploy</title>
-    <link rel='stylesheet' href='main.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const copyButton = document.querySelector('#copy-button');
-            const preElement = document.querySelector('pre');
-            const messageDiv = document.createElement('div');
-            messageDiv.id = 'copy-message';
-            preElement.parentNode.insertBefore(messageDiv, preElement.nextSibling);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capital Durable – Newsletter</title>
 
-            copyButton.addEventListener('click', () => {
-                const text = preElement.textContent;
-                navigator.clipboard.writeText(text).then(() => {
-                    messageDiv.textContent = 'Copied URL';
-                    setTimeout(() => {
-                        messageDiv.textContent = '';
-                    }, 2000);
-                }).catch(err => {
-                    messageDiv.textContent = 'Failed to copy';
-                    console.error('Failed to copy: ', err);
-                    setTimeout(() => {
-                        messageDiv.textContent = '';
-                    }, 2000);
-                });
-            });
-        });
-    </script>
+  <!-- Montserrat pour titres + textes -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* RESET & BASE ---------------------------------------------------------------- */
+    body,table,tbody,tr,td{margin:0;padding:0;border:0;border-collapse:collapse;}
+    img{display:block;border:0;max-width:100%;height:auto;line-height:100%;}
+    body{background:#f5f5f5;font-family:"Montserrat",Arial,sans-serif;color:#333;-webkit-text-size-adjust:100%;}
+    a{color:#7FB069;text-decoration:none;} /* vert plus clair */
+
+    /* TITRES & PARAGRAPHES --------------------------------------------------------- */
+    h1{
+      color:#7FB069;
+      font-weight:700;                /* H1 700 */
+      margin:0 0 10px 0;
+      word-break:break-word;
+      line-height:1.3;
+      font-family:"Montserrat", Arial, sans-serif;
+    }
+    h2,h3{
+      color:#7FB069;
+      font-weight:600;                /* H2/H3 600 */
+      margin:0 0 10px 0;
+      word-break:break-word;
+      line-height:1.3;
+      font-family:"Montserrat", Arial, sans-serif;
+    }
+    p{
+      font-size:14px;
+      line-height:1.6;
+      margin:0 0 14px 0;
+      word-break:break-word;
+      font-family:"Montserrat", Arial, sans-serif;
+      font-weight:300;                /* paragraphes 300 */
+      color:#555;
+    }
+
+    /* STRUCTURE & ESPACEMENTS ------------------------------------------------------ */
+    .wrapper{width:100%!important;background:#f5f5f5;padding:24px 0;}
+    .main{
+      width:100%!important;
+      max-width:600px!important;
+      margin:0 auto;
+      background:#fff;
+      border-collapse:collapse;
+      border-radius:20px;             /* radius container */
+    }
+
+    .padded          {padding:20px 24px;}
+    .header-bg       {background:#FFFFFF;}
+    .section-gap-top {padding-top:24px;}
+    .label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      color:#7FB069;
+      margin-bottom:6px;
+      font-weight:600;
+      font-family:"Montserrat", Arial, sans-serif;
+    }
+
+    /* Border radius images --------------------------------------------------------- */
+    .img-rounded{
+      border-radius:20px;             /* radius images */
+    }
+    .img-rounded-16{
+      border-radius:16px;             /* option 16px si tu préfères sur certains visuels */
+    }
+    .logo{
+      border-radius:0 !important;     /* logo sans radius */
+    }
+
+    /* Deux colonnes : espace horizontal serré */
+    .two-col .column{
+      width:50%;
+      vertical-align:top;
+      padding:0 6px 18px;
+    }
+    .two-col .column h3{margin-top:12px;}
+
+    /* Spacer compatible e-mail */
+    .spacer-12{line-height:0;font-size:0;height:12px;}
+
+    /* RESPONSIVE ------------------------------------------------------------------ */
+    @media screen and (max-width:600px){
+      .two-col .column{display:block!important;width:100%!important;padding:0 0 18px!important;box-sizing:border-box;}
+      .stack td       {display:block!important;width:100%!important;padding-left:0!important;}
+      .padded         {padding:16px!important;}
+      .wrapper        {padding:0!important;}
+      .section-gap-top{padding-top:18px!important;}
+      h1              {font-size:20px!important;}
+    }
+  </style>
 </head>
 
 <body>
-    <main>
-        <header class="page-header">
-            <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.2812 25.35L16.7625 22.8313L15.4062 24.1875L19.2812 28.0625L27.0312 20.3125L25.675 18.9563L19.2812 25.35Z" fill="white"/>
-                <path d="M11.9187 28.0625L1.84375 22.0562C1.2625 21.6687 0.875 21.0875 0.875 20.4094V8.59062C0.875 7.9125 1.2625 7.23437 1.84375 6.94375L11.5312 1.22812C11.8219 1.03437 12.1125 0.9375 12.5 0.9375C12.8875 0.9375 13.1781 1.03437 13.4688 1.22812L23.1562 6.94375C23.7375 7.33125 24.125 7.9125 24.125 8.59062V14.5H22.1875V8.59062L12.5 2.875L2.8125 8.59062V20.4094L12.9844 26.4156L11.9187 28.0625Z" fill="white"/>
-            </svg>                
-        </header>
-        <section class="content container">
-            <div class="title">
-                <h1><strong>{$AccountName}'s</strong> first deploy</h1>
-            </div>
-            <div class="details">
-                <ul>
-                    <li>
-                        <span>
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.875 8.99998L1.5 5.62498L2.03025 5.09473L4.875 7.9391L9.96975 2.84473L10.5 3.37498L4.875 8.99998Z" fill="#F4F0FF"/>
-                            </svg>
-                        </span>
-                        Deployed static site example
-                    </li>
-                    <li>
-                        <span>
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.99931 0.750031C4.75291 0.750199 3.54723 1.1938 2.59794 2.00148C1.64865 2.80916 1.01768 3.92823 0.817894 5.15851C0.61811 6.38879 0.862545 7.65001 1.50748 8.71658C2.15241 9.78314 3.15576 10.5855 4.33806 10.98C4.60056 11.0288 4.71306 10.8675 4.71306 10.7288C4.71306 10.59 4.71306 10.275 4.71306 9.83628C3.25431 10.1513 2.94681 9.13128 2.94681 9.13128C2.84422 8.80984 2.62833 8.53664 2.3393 8.36253C1.86305 8.04003 2.37681 8.04378 2.37681 8.04378C2.54316 8.06728 2.70194 8.12849 2.84102 8.22273C2.98011 8.31697 3.09581 8.44174 3.1793 8.58753C3.32456 8.84806 3.56733 9.04023 3.85424 9.12181C4.14115 9.20338 4.44872 9.16767 4.70931 9.02253C4.73048 8.75646 4.84778 8.50719 5.03931 8.32128C3.87681 8.18628 2.65056 7.73628 2.65056 5.72628C2.64205 5.20424 2.83551 4.69909 3.19056 4.31628C3.02985 3.8641 3.04864 3.36752 3.24306 2.92878C3.24306 2.92878 3.68181 2.78628 4.68681 3.46503C5.54611 3.23064 6.4525 3.23064 7.31181 3.46503C8.31306 2.78628 8.75181 2.92878 8.75181 2.92878C8.94622 3.36752 8.96501 3.8641 8.80431 4.31628C9.15935 4.69909 9.35281 5.20424 9.34431 5.72628C9.34431 7.74378 8.11806 8.18628 6.94806 8.31753C7.07339 8.44457 7.17004 8.59699 7.23149 8.76453C7.29294 8.93207 7.31777 9.11084 7.30431 9.28878C7.30431 9.99003 7.30431 10.5563 7.30431 10.7288C7.30431 10.9013 7.39806 11.0325 7.67931 10.98C8.86315 10.585 9.86754 9.78111 10.5124 8.71258C11.1572 7.64405 11.4003 6.38075 11.198 5.14923C10.9958 3.9177 10.3615 2.7985 9.40876 1.99232C8.45605 1.18614 7.24732 0.74572 5.99931 0.750031V0.750031Z" fill="#F4F0FF"/>
-                            </svg>
-                        </span>
-                        <a href="https://github.com/render-examples/sample-static-site" target="_blank">render-examples/sample-static-site</a>
-                    </li>
-                </ul>
-                <div id="copyable">
-                    <pre><code>{$HostName}</code><button id="copy-button" aria-label="Copy"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 5V14H5V5H14ZM14 4H5C4.73478 4 4.48043 4.10536 4.29289 4.29289C4.10536 4.48043 4 4.73478 4 5V14C4 14.2652 4.10536 14.5196 4.29289 14.7071C4.48043 14.8946 4.73478 15 5 15H14C14.2652 15 14.5196 14.8946 14.7071 14.7071C14.8946 14.5196 15 14.2652 15 14V5C15 4.73478 14.8946 4.48043 14.7071 4.29289C14.5196 4.10536 14.2652 4 14 4Z" fill="#F0F0F0"/>
-                        <path d="M2 9H1V2C1 1.73478 1.10536 1.48043 1.29289 1.29289C1.48043 1.10536 1.73478 1 2 1H9V2H2V9Z" fill="#F0F0F0"/>
-                        </svg>
-                    </button></pre>
-                    <div id="message"></div>
-                </div>
-            </div>
-        </section>
-    </main>
+  <center class="wrapper">
+    <table role="presentation" cellpadding="0" cellspacing="0" class="main" width="100%">
+
+      <!-- ========== HEADER ========== -->
+      <tbody>
+        <tr>
+          <td class="padded header-bg" align="center">
+
+            <img
+            class="logo"
+            src="img/CAPITAL DURABLE I _logo complet horizontal.png"
+            width="220"
+            alt="Capital Durable"
+            style="display:block;margin:0 auto 18px auto;border-radius:0;"
+          >
+          
+
+            <h1>L’actualité de la construction et de la rénovation durable</h1>
+            <p style="font-size:13px;color:#666;font-weight:300;">Mercredi 18 février 2026</p>
+          </td>
+        </tr>
+
+        <!-- ========== MAIN ARTICLE ========== -->
+        <tr>
+          <td class="section-gap-top padded">
+            <a href="https://capitaldurable.com/agroforesterie-planter-des-arbres-pour-sauver-les-sols/">
+              <img
+                class="img-rounded"
+                src="https://cdn.capitaldurable.com/wp-content/uploads/2026/02/plantation_arbres_final_2_1200x900.webp"
+                alt="Agroforesterie : comment les arbres protègent les sols agricoles"
+              >
+            </a>
+
+            <div class="spacer-12">&nbsp;</div>
+
+            <h3 class="main-title">
+              <a href="https://capitaldurable.com/agroforesterie-planter-des-arbres-pour-sauver-les-sols/">
+                Agroforesterie : comment les arbres protègent les sols agricoles
+              </a>
+            </h3>
+
+            <p style="font-size:13px;color:#666;font-weight:300;">
+              Planter des arbres dans les champs protège les sols et aide l’agriculture à s’adapter au changement climatique.
+            </p>
+          </td>
+        </tr>
+
+        <!-- ========== FEATURED (2 COL) ========== -->
+        <tr>
+          <td class="section-gap-top padded" style="padding-bottom:12px;">
+            <table role="presentation" width="100%" class="two-col" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+
+                  <td class="column">
+                    <a href="https://capitaldurable.com/normes-logement-2028-ce-qui-va-changer-pour-les-proprietaires/">
+                      <img
+                        class="img-rounded"
+                        src="https://cdn.capitaldurable.com/wp-content/uploads/2026/02/plan_projet_1200x900.webp"
+                        alt="Normes logement 2028 : ce qui va changer pour les propriétaires"
+                      >
+                    </a>
+                    <h3>
+                      <a href="https://capitaldurable.com/normes-logement-2028-ce-qui-va-changer-pour-les-proprietaires/">
+                        Normes logement 2028 : ce qui va changer pour les propriétaires
+                      </a>
+                    </h3>
+                    <p style="font-size:13px;color:#666;font-weight:300;">
+                      Normes environnementales, location, valeur des biens : 2028 marque une étape clé pour le logement. Voici comment ces rè…
+                    </p>
+                  </td>
+
+                  <td class="column">
+                    <a href="https://capitaldurable.com/le-magazine-capital-durable-arrive-dans-vos-boites-aux-lettres/">
+                      <img
+                        class="img-rounded"
+                        src="https://cdn.capitaldurable.com/wp-content/uploads/2026/02/capital_durable_scene_1_1200x900.webp"
+                        alt="Le magazine Capital Durable arrive dans vos boîtes aux lettres"
+                      >
+                    </a>
+                    <h3>
+                      <a href="https://capitaldurable.com/le-magazine-capital-durable-arrive-dans-vos-boites-aux-lettres/">
+                        Le magazine Capital Durable arrive dans vos boîtes aux lettres
+                      </a>
+                    </h3>
+                    <p style="font-size:13px;color:#666;font-weight:300;">
+                      Un nouveau magazine arrive dans les boîtes aux lettres toulousaines au printemps pour aider les habitants à mieux compr…
+                    </p>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ========== BANNIÈRE PUB ========== -->
+        <tr>
+          <td class="padded" align="center" style="padding-top:12px;">
+            <a href="https://capitaldurable.com/">
+              <img
+                class="img-rounded"
+                src="https://cdn.capitaldurable.com/wp-content/uploads/2025/01/capital-durable-banniere-collage-logo-light-desktop.webp"
+                width="560"
+                alt="Bannière publicitaire"
+                style="max-width:560px;width:100%;"
+              >
+            </a>
+          </td>
+        </tr>
+
+        <!-- ========== STACK ITEMS ========== -->
+        <tr>
+          <td class="padded">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="stack" style="margin-bottom:24px;">
+              <tbody>
+                <tr>
+                  <td width="30%" style="vertical-align:top;">
+                    <a href="https://capitaldurable.com/isolation-des-tuyaux-un-levier-cle-de-la-renovation-energetique/">
+                      <img
+                        class="img-rounded-16"
+                        src="https://cdn.capitaldurable.com/wp-content/uploads/2026/02/calorifugeage_2_1200x900.webp"
+                        alt="Isolation des tuyaux : un levier clé de la rénovation énergétique"
+                      >
+                    </a>
+                  </td>
+                  <td width="70%" style="vertical-align:top;padding-left:18px;">
+                    <span class="label">Actu</span>
+                    <h3 style="margin-top:0;font-size:15px;">
+                      <a href="https://capitaldurable.com/isolation-des-tuyaux-un-levier-cle-de-la-renovation-energetique/">
+                        Isolation des tuyaux : un levier clé de la rénovation énergétique
+                      </a>
+                    </h3>
+                    <p>Souvent oubliée, l’isolation des tuyaux réduit pourtant les pertes de chaleur. Un geste simple qui améliore la per…</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="padded">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="stack" style="margin-bottom:24px;">
+              <tbody>
+                <tr>
+                  <td width="30%" style="vertical-align:top;">
+                    <a href="https://capitaldurable.com/plantation-participative-qui-seduisent-de-plus-en-plus-de-territoires/">
+                      <img
+                        class="img-rounded-16"
+                        src="https://cdn.capitaldurable.com/wp-content/uploads/2026/02/plantation_arbres_2_1200x900.webp"
+                        alt="Plantation participative : qui séduisent de plus en plus de territoires"
+                      >
+                    </a>
+                  </td>
+                  <td width="70%" style="vertical-align:top;padding-left:18px;">
+                    <span class="label">Actu</span>
+                    <h3 style="margin-top:0;font-size:15px;">
+                      <a href="https://capitaldurable.com/plantation-participative-qui-seduisent-de-plus-en-plus-de-territoires/">
+                        Plantation participative : qui séduisent de plus en plus de territoires
+                      </a>
+                    </h3>
+                    <p>La plantation participative s’impose comme un outil simple et collectif pour renforcer la biodiversité, les sols e…</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ========== FOOTER ========== -->
+        <tr>
+          <td class="padded header-bg" align="center" style="font-size:11px;color:#666;">
+            <p style="margin:0;font-weight:300;">© Capital Durable – Tous droits réservés</p>
+            <p style="margin:0;font-weight:300;">
+              <a href="https://capitaldurable.com/espace-professionnel/" style="color:#7FB069;text-decoration:none;">
+                👉 Réservez vos publicités sur Capital Durable
+              </a>
+            </p>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </center>
 </body>
 </html>
+
