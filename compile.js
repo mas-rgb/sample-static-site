@@ -233,31 +233,12 @@ function buildNewsletter(posts) {
       h1{font-size:20px!important;}
     }
   </style>
-</head>
 
-<body>
-  <center class="wrapper">
-    <table role="presentation" cellpadding="0" cellspacing="0" class="main" width="100%">
-      <tbody>
 
-        <tr>
-          <td class="padded header-bg" align="center">
-            <img
-              src="https://cdn.jsdelivr.net/gh/mas-rgb/sample-static-site@main/logo.png"
-              width="220"
-              alt="Capital Durable"
-              style="display:block;margin:0 auto 18px auto;border:0;"
-            >
 
-            <h1>L’actualité de la construction et de la rénovation durable</h1>
-            <p style="font-size:13px;color:#666;font-weight:300;">${formatFrenchDate()}</p>
-          </td>
-        </tr>
 
-        ${mainPost ? renderMainArticle(mainPost) : ""}
-        ${featuredPosts.length ? renderFeaturedColumns(featuredPosts) : ""}
 
-     <!-- STYLE à ajouter UNE FOIS dans le head généré -->
+       <!-- STYLE à ajouter UNE FOIS dans le head généré -->
 <style>
   .mobile-only {
     display: none;
@@ -286,6 +267,31 @@ function buildNewsletter(posts) {
     }
   }
 </style>
+
+</head>
+
+<body>
+  <center class="wrapper">
+    <table role="presentation" cellpadding="0" cellspacing="0" class="main" width="100%">
+      <tbody>
+
+        <tr>
+          <td class="padded header-bg" align="center">
+            <img
+              src="https://cdn.jsdelivr.net/gh/mas-rgb/sample-static-site@main/logo.png"
+              width="220"
+              alt="Capital Durable"
+              style="display:block;margin:0 auto 18px auto;border:0;"
+            >
+
+            <h1>L’actualité de la construction et de la rénovation durable</h1>
+            <p style="font-size:13px;color:#666;font-weight:300;">${formatFrenchDate()}</p>
+          </td>
+        </tr>
+
+        ${mainPost ? renderMainArticle(mainPost) : ""}
+        ${featuredPosts.length ? renderFeaturedColumns(featuredPosts) : ""}
+
 
 <!-- TITRE MOBILE -->
 <tr class="" style="display:none;mso-hide:all;">
