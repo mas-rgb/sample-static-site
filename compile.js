@@ -259,7 +259,7 @@ function buildNewsletter(posts) {
 
         <tr>
           <td class="padded" align="center" style="padding-top:12px;">
-            <a href="https://capitaldurable.com/">
+            <a href="https://www.helloasso.com/associations/mush/evenements/les-rencontres-de-l-economie-regenerative-occitanie-11-juin-toulouse-2">
               <img
                 class="img-rounded"
                 src="/images_banner-capitaldurable.png"
