@@ -262,7 +262,7 @@ function buildNewsletter(posts) {
             <a href="https://capitaldurable.com/">
               <img
                 class="img-rounded"
-                src="images_banner-capitaldurable.png"
+                src="/images_banner-capitaldurable.png"
                 width="560"
                 alt="Bannière publicitaire"
                 style="max-width:560px;width:100%;"
