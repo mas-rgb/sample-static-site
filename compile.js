@@ -257,19 +257,63 @@ function buildNewsletter(posts) {
         ${mainPost ? renderMainArticle(mainPost) : ""}
         ${featuredPosts.length ? renderFeaturedColumns(featuredPosts) : ""}
 
-        <tr>
-          <td class="padded" align="center" style="padding-top:12px;">
-            <a href="https://www.helloasso.com/associations/mush/evenements/les-rencontres-de-l-economie-regenerative-occitanie-11-juin-toulouse-2">
-              <img
-                class="img-rounded"
-                src="/images_banner-capitaldurable.png"
-                width="560"
-                alt="Bannière publicitaire"
-                style="max-width:560px;width:100%;"
-              >
-            </a>
-          </td>
-        </tr>
+     <!-- STYLE à ajouter UNE FOIS dans le head généré -->
+<style>
+  .mobile-only {
+    display: none;
+    mso-hide: all;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .mobile-only {
+      display: block !important;
+      max-height: none !important;
+      overflow: visible !important;
+    }
+
+    .mobile-title {
+      font-size: 20px !important;
+      font-weight: bold !important;
+      text-align: center !important;
+      padding: 12px 20px 6px 20px !important;
+    }
+
+    .mobile-text {
+      font-size: 14px !important;
+      text-align: center !important;
+      padding: 10px 20px 16px 20px !important;
+      line-height: 1.4 !important;
+    }
+  }
+</style>
+
+<!-- TITRE MOBILE -->
+<tr class="" style="display:none;mso-hide:all;">
+  <td align="center" class="">
+    🌱 Les Rencontres de l’économie régénérative
+  </td>
+</tr>
+
+<!-- BANNIÈRE -->
+<tr>
+  <td align="center" style="padding-top:12px;">
+    <a href="https://www.helloasso.com/associations/mush/evenements/les-rencontres-de-l-economie-regenerative-occitanie-11-juin-toulouse-2" target="_blank">
+      <img
+        src="/images_banner-capitaldurable.png"
+        width="560"
+        alt="Capital Durable"
+        style="max-width:560px;width:100%;display:block;border:0;"
+      >
+    </a>
+  </td>
+</tr>
+
+<!-- TEXTE MOBILE -->
+<tr class="" style="display:none;mso-hide:all;">
+  <td align="center" class="">
+    📅 11 juin 2026 à Toulouse — Réservez votre place dès maintenant sur HelloAsso.
+  </td>
+</tr>
 
         ${stackPosts.length ? renderStackArticles(stackPosts) : ""}
 
