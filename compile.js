@@ -236,6 +236,12 @@ function buildNewsletter(posts) {
 
 
 
+
+  </style>
+
+
+
+
         <!-- STYLE à ajouter UNE FOIS dans le head généré -->
   .mobile-only {
     display: none;
@@ -263,12 +269,6 @@ function buildNewsletter(posts) {
       line-height: 1.4 !important;
     }
   }
-
-  </style>
-
-
-
-
 
    
 
