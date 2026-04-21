@@ -157,7 +157,7 @@ function buildNewsletter(posts) {
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
   
 
-}
+
   <style>
     body,table,tbody,tr,td{margin:0;padding:0;border:0;border-collapse:collapse;}
     img{display:block;border:0;max-width:100%;height:auto;line-height:100%;}
