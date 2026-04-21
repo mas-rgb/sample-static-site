@@ -242,6 +242,11 @@ function buildNewsletter(posts) {
 
 
 
+
+   
+
+</head>
+
 .mobile-only{
   display:none;
   max-height:0;
@@ -255,11 +260,6 @@ function buildNewsletter(posts) {
     max-height:none!important;
     overflow:visible!important;
   }
-
-
-   
-
-</head>
 
 <body>
   <center class="wrapper">
