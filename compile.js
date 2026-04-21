@@ -243,7 +243,7 @@ function buildNewsletter(posts) {
   mso-hide:all;
 }
 
-@media screen and (max-width:600px){
+@media screen and (max-width:600px)
   .mobile-only{
     display:block!important;
     max-height:none!important;
