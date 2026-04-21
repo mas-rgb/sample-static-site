@@ -159,6 +159,25 @@ function buildNewsletter(posts) {
 
 
   <style>
+
+.mobile-only{
+  display:none;
+  max-height:0;
+  overflow:hidden;
+  mso-hide:all;
+}
+
+@media screen and (max-width:600px)
+  .mobile-only{
+    display:block!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+
+
+
+  
     body,table,tbody,tr,td{margin:0;padding:0;border:0;border-collapse:collapse;}
     img{display:block;border:0;max-width:100%;height:auto;line-height:100%;}
     body{background:#f5f5f5;font-family:"Montserrat",Arial,sans-serif;color:#333;-webkit-text-size-adjust:100%;}
@@ -236,19 +255,6 @@ function buildNewsletter(posts) {
     }
 
 
-.mobile-only{
-  display:none;
-  max-height:0;
-  overflow:hidden;
-  mso-hide:all;
-}
-
-@media screen and (max-width:600px)
-  .mobile-only{
-    display:block!important;
-    max-height:none!important;
-    overflow:visible!important;
-  }
 
 
   </style>
