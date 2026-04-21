@@ -155,7 +155,21 @@ function buildNewsletter(posts) {
   <title>Capital Durable – Newsletter</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+  
+.mobile-only{
+  display:none;
+  max-height:0;
+  overflow:hidden;
+  mso-hide:all;
+}
 
+@media screen and (max-width:600px){
+  .mobile-only{
+    display:block!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+}
   <style>
     body,table,tbody,tr,td{margin:0;padding:0;border:0;border-collapse:collapse;}
     img{display:block;border:0;max-width:100%;height:auto;line-height:100%;}
@@ -296,10 +310,9 @@ function buildNewsletter(posts) {
         ${mainPost ? renderMainArticle(mainPost) : ""}
         ${featuredPosts.length ? renderFeaturedColumns(featuredPosts) : ""}
 
-
 <!-- TITRE MOBILE -->
-<tr class="" style="display:none;mso-hide:all;">
-  <td align="center" class="">
+<tr>
+  <td class="" align="center" style="display:none;mso-hide:all;padding:12px 20px 6px 20px;font-size:20px;font-weight:700;color:#7FB069;">
     🌱 Les Rencontres de l’économie régénérative
   </td>
 </tr>
@@ -319,11 +332,12 @@ function buildNewsletter(posts) {
 </tr>
 
 <!-- TEXTE MOBILE -->
-<tr class="" style="display:none;mso-hide:all;">
-  <td align="center" class="">
+<tr>
+  <td class="" align="center" style="display:none;mso-hide:all;padding:10px 20px 16px 20px;font-size:14px;color:#555;">
     📅 11 juin 2026 à Toulouse — Réservez votre place dès maintenant sur HelloAsso.
   </td>
 </tr>
+
 
         ${stackPosts.length ? renderStackArticles(stackPosts) : ""}
 
