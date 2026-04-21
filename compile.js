@@ -256,33 +256,6 @@ function buildNewsletter(posts) {
 
 
 
-        <!-- STYLE à ajouter UNE FOIS dans le head généré -->
-  .mobile-only {
-    display: none;
-    mso-hide: all;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .mobile-only {
-      display: block !important;
-      max-height: none !important;
-      overflow: visible !important;
-    }
-
-    .mobile-title {
-      font-size: 20px !important;
-      font-weight: bold !important;
-      text-align: center !important;
-      padding: 12px 20px 6px 20px !important;
-    }
-
-    .mobile-text {
-      font-size: 14px !important;
-      text-align: center !important;
-      padding: 10px 20px 16px 20px !important;
-      line-height: 1.4 !important;
-    }
-  }
 
    
 
