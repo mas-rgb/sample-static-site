@@ -232,14 +232,11 @@ function buildNewsletter(posts) {
       .section-gap-top{padding-top:18px!important;}
       h1{font-size:20px!important;}
     }
-  </style>
 
 
 
 
-
-       <!-- STYLE à ajouter UNE FOIS dans le head généré -->
-<style>
+        <!-- STYLE à ajouter UNE FOIS dans le head généré -->
   .mobile-only {
     display: none;
     mso-hide: all;
@@ -266,7 +263,14 @@ function buildNewsletter(posts) {
       line-height: 1.4 !important;
     }
   }
-</style>
+
+  </style>
+
+
+
+
+
+   
 
 </head>
 
