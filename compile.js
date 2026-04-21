@@ -156,19 +156,7 @@ function buildNewsletter(posts) {
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
   
-.mobile-only{
-  display:none;
-  max-height:0;
-  overflow:hidden;
-  mso-hide:all;
-}
 
-@media screen and (max-width:600px){
-  .mobile-only{
-    display:block!important;
-    max-height:none!important;
-    overflow:visible!important;
-  }
 }
   <style>
     body,table,tbody,tr,td{margin:0;padding:0;border:0;border-collapse:collapse;}
@@ -247,7 +235,19 @@ function buildNewsletter(posts) {
       h1{font-size:20px!important;}
     }
 
+.mobile-only{
+  display:none;
+  max-height:0;
+  overflow:hidden;
+  mso-hide:all;
+}
 
+@media screen and (max-width:600px){
+  .mobile-only{
+    display:block!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
 
 
 
